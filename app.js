@@ -145,6 +145,7 @@ boxes.forEach((box) => {
     box.disabled = true;
     count += 1;
     if (count == 9) {
+      turn.classList.add("hidden");
       drawMsg();
     }
     checkWinner();
