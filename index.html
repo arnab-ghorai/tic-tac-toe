@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Toe</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+    </style>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="fevicon.png" />
+  </head>
+
+  <body>
+    <div class="title">Tic Tac Toe</div>
+
+    <div class="outer_container">
+      <div class="turn">Player O</div>
+      <div class="inner_container">
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+      </div>
+    </div>
+
+    <div class="rst_cont">
+      <button class="restart_btn bdr">Restart</button>
+    </div>
+
+    <div class="popup hide">
+      <div class="title">Tic Tac Toe</div>
+
+      <div class="popup_cont">
+        <div class="scoreboard">
+          <p>Score Board</p>
+          <div class="scoreCont">
+            <div class="score">
+              <p>O</p>
+              <p class="oscore">0</p>
+            </div>
+            <div>|</div>
+            <div class="score">
+              <p>X</p>
+              <p class="xscore">0</p>
+            </div>
+          </div>
+        </div>
+        <p class="msg"></p>
+        <button class="newgame_btn bdr">New Game</button>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
