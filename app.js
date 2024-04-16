@@ -15,6 +15,7 @@ let oTurn = true;
 let count = 0;
 let o = 0;
 let x = 0;
+let callCheckWinner = true;
 
 //winning pattern
 
@@ -69,6 +70,7 @@ const enableBtns = () => {
 
 newgame_btn.addEventListener("click", () => {
   count = 0;
+  callCheckWinner = true;
   enableBtns();
 });
 
@@ -76,6 +78,7 @@ newgame_btn.addEventListener("click", () => {
 
 restart_btn.addEventListener("click", () => {
   count = 0;
+  callCheckWinner = true;
   enableBtns();
 });
 
@@ -105,6 +108,9 @@ const winnerMsg = (player) => {
 
 const checkWinner = () => {
   for (let pattern of winningPattern) {
+     if (!callCheckWinner) {
+      return;
+    }
     let value0 = boxes[pattern[0]].innerText;
     let value1 = boxes[pattern[1]].innerText;
     let value2 = boxes[pattern[2]].innerText;
@@ -112,6 +118,7 @@ const checkWinner = () => {
     if (value0 != "" && value1 != "" && value2 != "") {
       if (value0 == value1 && value1 == value2) {
         turn.classList.add("hidden");
+        callCheckWinner = false;
         boxes[pattern[0]].style.backgroundColor = "#48cae4";
         boxes[pattern[1]].style.backgroundColor = "#48cae4";
         boxes[pattern[2]].style.backgroundColor = "#48cae4";
