@@ -2,6 +2,12 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 body {
@@ -12,17 +18,108 @@ body {
   flex-direction: column;
   justify-content: center;
   justify-items: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Background Animation */
+.background-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.shape {
+  position: absolute;
+  opacity: 0.1;
+  animation: float 15s infinite linear;
+}
+
+.shape:nth-child(1) {
+  top: 20%;
+  left: 10%;
+  width: 80px;
+  height: 80px;
+  border: 4px solid #9e1971;
+  animation-delay: 0s;
+  animation-duration: 20s;
+}
+
+.shape:nth-child(2) {
+  top: 60%;
+  left: 80%;
+  width: 100px;
+  height: 100px;
+  border: 4px solid #38b000;
+  transform: rotate(45deg);
+  animation-delay: -5s;
+  animation-duration: 25s;
+}
+
+.shape:nth-child(3) {
+  top: 80%;
+  left: 30%;
+  width: 60px;
+  height: 60px;
+  border: 4px solid #f1faee;
+  border-radius: 50%;
+  animation-delay: -10s;
+  animation-duration: 18s;
+}
+
+.shape:nth-child(4) {
+  top: 10%;
+  left: 70%;
+  width: 120px;
+  height: 120px;
+  border: 4px solid #9e1971;
+  border-radius: 30%;
+  animation-delay: -15s;
+  animation-duration: 22s;
+}
+
+.shape:nth-child(5) {
+  top: 50%;
+  left: 50%;
+  width: 90px;
+  height: 90px;
+  border: 4px solid #38b000;
+  transform: rotate(30deg);
+  animation-delay: -7s;
+  animation-duration: 23s;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(30px, 50px) rotate(120deg);
+  }
+  66% {
+    transform: translate(-30px, -20px) rotate(240deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(360deg);
+  }
 }
 
 .title {
-  font-size: 10vmin;
+  font-size: 7vmin;
   font-weight: bold;
   background-color: #f1faee;
   color: #9e1971;
   margin: 2rem;
   padding: 0.7rem;
   border-radius: 10px;
-  box-shadow: 1rem 1rem 0.5rem black;
+  box-shadow: 0.5rem 0.5rem 0.75rem black;
+  position: relative;
+  z-index: 1;
 }
 
 .title:hover {
@@ -41,35 +138,51 @@ body {
 .turn {
   color: #9e1971;
   font-size: 3vh;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 0.5em 1.5em;
+  background: rgba(158, 25, 113, 0.2);
+  border-radius: 50px;
   transition: all 0.3s ease-in-out;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .outer_container .inner_container {
-  height: 60vmin;
-  width: 60vmin;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 1.8vmin;
+  /* width: min(90vw, 400px);
+  aspect-ratio: 1; */
+  padding: 0.75rem;
+  background: rgba(241, 250, 238, 0.05);
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
 }
 
 .inner_container .box {
   background-color: #f1faee;
-  height: 18vmin;
-  width: 18vmin;
-  font-size: 10vmin;
+  height: 15vmin;
+  width: 15vmin;
+  font-size: 8vmin;
   font-weight: 700;
   text-shadow: 0.2rem 0.2rem 0.5rem black;
   border-radius: 1rem;
   border: none;
-  box-shadow: 1rem 1rem 0.5rem black;
+  transition: all 0.3s ease;
+  /* box-shadow: 1rem 1rem 0.5rem black; */
   cursor: pointer;
 }
 
 .box:active {
-  box-shadow: 0 0 1rem white;
+  box-shadow: 0 0 0.5rem white;
+}
+
+.box:hover {
+  transform: scale(1.04);
+}
+
+.box:disabled {
+  cursor: not-allowed;
+  opacity: 0.8;
 }
 
 .rst_cont {
@@ -79,37 +192,29 @@ body {
   align-items: center;
 }
 
-.restart_btn {
-  background-color: #f1faee;
-  font-family: "Russo One", sans-serif;
-  font-size: 7vmin;
-  font-weight: bold;
-  color: #9e1971;
-  border-radius: 0.8rem;
-  margin-top: 2rem;
-  padding: 0.4rem;
-  box-shadow: 1rem 1rem 0.5rem black;
-  cursor: pointer;
-}
-
-.restart_btn:active {
-  box-shadow: 0 0 2rem;
-}
-
+.restart_btn,
 .newgame_btn {
   background-color: #f1faee;
   font-family: "Russo One", sans-serif;
-  font-size: 8vmin;
+  font-size: 5vmin;
   font-weight: bold;
   color: #9e1971;
-  border-radius: 1rem;
-  padding: 1rem;
-  box-shadow: 1rem 1rem 0.5rem black;
+  border-radius: 0.8rem;
+  border: none;
+  margin-top: 2rem;
+  padding: 0.75rem 2rem;
+  box-shadow: 0.5rem 0.5rem 0.75rem black;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
+.restart_btn:active,
 .newgame_btn:active {
   box-shadow: 0 0 2rem;
+}
+.restart_btn:hover,
+.newgame_btn:active {
+  transform: translateY(-3px);
 }
 
 .popup {
@@ -194,19 +299,19 @@ body {
 
 @keyframes bounce {
   0% {
-    font-size: 12vmin;
+    font-size: 10vmin;
   }
   25% {
-    font-size: 11vmin;
+    font-size: 9vmin;
   }
   50% {
-    font-size: 10vmin;
+    font-size: 8vmin;
   }
   75% {
-    font-size: 11vmin;
+    font-size: 9vmin;
   }
   100% {
-    font-size: 10vmin;
+    font-size: 8vmin;
   }
 }
 
