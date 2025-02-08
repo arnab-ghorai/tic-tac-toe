@@ -18,9 +18,6 @@ body {
   flex-direction: column;
   justify-content: center;
   justify-items: center;
-  min-height: 100vh;
-  overflow-x: hidden;
-  position: relative;
 }
 
 /* Background Animation */
@@ -118,8 +115,6 @@ body {
   padding: 0.7rem;
   border-radius: 10px;
   box-shadow: 0.5rem 0.5rem 0.75rem black;
-  position: relative;
-  z-index: 1;
 }
 
 .title:hover {
