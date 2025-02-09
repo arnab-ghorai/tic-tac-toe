@@ -33,7 +33,7 @@ body {
 
 .shape {
   position: absolute;
-  opacity: 0.1;
+  opacity: 0.2;
   animation: float 15s infinite linear;
 }
 
@@ -42,7 +42,7 @@ body {
   left: 10%;
   width: 80px;
   height: 80px;
-  border: 4px solid #9e1971;
+  border: 4px solid #38b000;
   animation-delay: 0s;
   animation-duration: 20s;
 }
@@ -81,11 +81,12 @@ body {
 }
 
 .shape:nth-child(5) {
-  top: 50%;
-  left: 50%;
+  top: 60%;
+  left: 10%;
   width: 90px;
   height: 90px;
-  border: 4px solid #38b000;
+  border: 4px solid #9e1971;
+  border-radius: 20%;
   transform: rotate(30deg);
   animation-delay: -7s;
   animation-duration: 23s;
@@ -312,7 +313,16 @@ body {
 
 @media (max-width: 450px) {
   .outer_container {
-    /* background-color: aliceblue; */
     height: 50vh;
+  }
+
+  .inner_container .box {
+    height: 17vmin;
+    width: 17vmin;
+  }
+
+  .restart_btn,
+  .newgame_btn {
+    font-size: 7vmin;
   }
 }
